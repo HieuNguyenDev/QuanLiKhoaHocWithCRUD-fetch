@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+@keyframes showModalAddCourse {
+    0% {
+        opacity: 0;
+        transform: translateY(-400px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: 'Lato', Arial;
+}
+
+.delete-course-icon, .update-course-icon {
+    cursor: pointer;
+    color: #ff0000;
+    font-size: 22px;
+    margin-top: 20px;
+}
+
+.update-course-icon {
+    margin-left: 20px;
+    color: #71be34;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 46px;
+    background-color: #000;
+    z-index: 1;
+}
+
+header .nav li {
+    display: inline-block;
+}
+
+header .nav a {
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    padding: 0 24px;
+    line-height: 46px;
+}
+
+header .nav a:hover {
+    color: #000;
+    display: block;
+    background-color: #ccc;
+}
+
+main {
+    width: 900px;
+    margin: 46px auto;
+    
+    padding-left: 40px;
+}
+
+.title-heading {
+    color: #71be34;
+    padding-top: 20px;
+    margin: 60px 0;
+    letter-spacing: 4px;
+}
+
+#list-courses li {
+    list-style: none;
+    margin-bottom: 40px;
+}
+
+#list-courses li p {
+    margin-top: 20px;
+}
+
+.show-modal.modal {
+    display: flex;
+}
+
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:rgba(0, 0, 0, 0.6);
+    display: none;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-container {
+    width: 900px;
+    max-width: calc(100% - 20px);
+    position: relative;
+    animation: showModalAddCourse ease-in-out 0.4s;
+}
+
+.modal-header {
+    height: 100px;
+    background-color: #71be34;
+}
+
+.modal-heading {
+    text-align: center;
+    line-height: 100px;
+    letter-spacing: 4px;
+}
+
+.form {
+    background: #fff;
+    padding: 40px;
+    box-shadow: 0 0 14px rgba(0, 0, 0, 0.4);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+}
+
+.form-group button {
+    font-family: 'Lato', Arial;
+    background: linear-gradient(90deg, #a0ee60, #71be34);
+    color: #fff;
+    border: 1px solid #71be34;
+    padding: 10px 60px;
+    cursor: pointer;
+}
+
+.change-color-btn {
+    background: #fff !important;
+    color: #000 !important;
+}
+
+.close-btn {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+.close-icon {
+    font-size: 32px;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* error */
+
