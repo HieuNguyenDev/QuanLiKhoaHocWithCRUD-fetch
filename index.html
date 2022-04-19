@@ -14,7 +14,7 @@
     <header>
         <ul class="nav">
             <li>
-                <a id="add-course" href="#">Thêm khóa học</a>
+                <a id="add-course" onclick="showFormAddCourse()" href="#">Thêm khóa học</a>
             </li>
         </ul>
     </header>
@@ -30,7 +30,7 @@
                 <h2 class="modal-heading">Thêm khóa học</h2>
             </div>
             <div class="form">
-                <div class="close-btn">
+                <div class="close-btn" onclick="hiddenFormAddCourse()">
                     <ion-icon class="close-icon" name="close-outline"></ion-icon>
                 </div>
                 <div class="form-group">
@@ -42,7 +42,7 @@
                     <input type="text" name="description">
                 </div>
                 <div class="form-group">
-                    <button id="create-btn">Create</button>
+                    <button id="create-btn" onclick="handleCreateCourse()">Create</button>
                 </div>
             </div>
         </div>

@@ -6,13 +6,7 @@ const addCourse = document.querySelector('#add-course');
 const modal = document.querySelector('.modal');
 const closeBtn = document.querySelector('.close-icon');
 
-function start() {
-    getCourses(renderCourses);
-    showFormAddCourse();
-    hiddenFormAddCourse();
-}
-
-start();
+getCourses(renderCourses);
 
 function getCourses(callback) {
     fetch(coursesApi)
@@ -66,23 +60,20 @@ function renderCourses(courses) {
     listCourses.innerHTML = html.join('')
 }
 
-function handleCreateCourse() {
-    createBtn.addEventListener('click', () => {            
-            let name = document.querySelector('input[name="name"]').value;
-            let description = document.querySelector('input[name="description"]').value;
+function handleCreateCourse() {          
+    let name = document.querySelector('input[name="name"]').value;
+    let description = document.querySelector('input[name="description"]').value;
 
-            if (name === '' || description === '') {
-                alert('Bạn không được để trống!');
-            } else {
-                let formData = {
-                    name: name,
-                    description: description
-                }
+    if (name === '' || description === '') {
+        alert('Bạn không được để trống!');
+    } else {
+        let formData = {
+            name: name,
+            description: description
+        }
 
-                createCourses(formData);
-            }
-
-        })
+        createCourses(formData);
+    }
 }
 
 function handleDeleteCourse(id) {
@@ -97,7 +88,7 @@ function handleDeleteCourse(id) {
             return response.json();
         })
         .then(() => {
-            let courseItem = document.querySelector('.course-item-' + id)
+            let courseItem = document.querySelector('.course-item-' + id);
             courseItem.remove()
         })
 }
@@ -115,6 +106,7 @@ function handleUpdateCourse(id) {
     let updateBtn = document.querySelector('#create-btn')
     updateBtn.setAttribute('id', 'update-btn');
     updateBtn.textContent = 'Update';
+    updateBtn.setAttribute('onclick', 'handleUpdateCourses()')
 
     updateBtn.addEventListener('click', () => {
         let newName = document.querySelector('input[name="name"]').value;
@@ -125,7 +117,11 @@ function handleUpdateCourse(id) {
             description: newDescription
         }
     
-        updateCourses(id, formData)
+        updateCourses(id, formData, () => {
+            getCourses(renderCourses);
+        })
+
+        
     })
 
 
